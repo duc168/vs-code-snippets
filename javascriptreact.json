@@ -1,0 +1,62 @@
+{
+    "duc168-rfc1": {
+        "prefix": "duc168-rfc-with-styles",
+        "body": [
+            "import React from 'react'",
+            "import styles from './styles.module.scss'",
+            "const ${1:ComponentNameHere} = () => {",
+            "    return <div className={styles.container}>",
+            "            $0",
+            "    </div>",
+            "}",
+            "",
+            "export default ${1:ComponentNameHere}"
+        ],
+        "description": "duc168-rfc1"
+    },
+    "duc168-rfc2": {
+        "prefix": "duc168-rfc-without-styles",
+        "body": [
+            "import React from 'react'",
+            "const ${1:ComponentNameHere} = () => {",
+            "    return <div>",
+            "            $0",
+            "    </div>",
+            "}",
+            "",
+            "export default ${1:ComponentNameHere}"
+        ],
+        "description": "duc168-rfc2"
+    },
+    "duc168-create-context": {
+        "prefix": "duc168-cc-create-context",
+        "body": [
+            "import { createContext, useContext } from 'react';",
+            "",
+            "const use${1:App} = () => {",
+            "  return {",
+            "    $2",
+            "  }",
+            "};",
+            "",
+            "const context = createContext(null);",
+            "",
+            "export const ${1:App}ContextProvider = ({ children }) => {",
+            "  const value = use${1:App}();",
+            "",
+            "  return <context.Provider value={value}>{children}</context.Provider>;",
+            "};",
+            "",
+            "export const use${1:App}Context = () => {",
+            "  const value = useContext(context);",
+            "",
+            "  if (!value) {",
+            "    throw new Error('use${1:App}Context must be used inside ${1:App}ContextProvider');",
+            "  }",
+            "",
+            "  return value;",
+            "};"
+        ],
+        "description": "Create A React Context"
+    }
+}
